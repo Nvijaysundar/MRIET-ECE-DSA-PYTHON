@@ -1,0 +1,63 @@
+class Node:
+  def __init__(self,data):
+    self.data = data
+    self.next = None
+    
+
+class SLL(Node):
+  def __init__(self):
+    self.head = None
+  
+  def insertData(self,data):
+    newNode = Node(data)
+    if self.head is None:
+      self.head = newNode
+    else: 
+      temp = self.head
+      while temp.next is not None:
+        temp = temp.next
+      
+      temp.next = newNode
+  
+  def display(self):
+    if self.head is None:
+      print("No data Available")
+    else:
+      temp = self.head
+      while temp is not None:
+        print(temp.data)
+        temp = temp.next
+  
+  def insertAtBegin(self,data):
+    newNode = Node(data)
+    if self.head is None:
+      self.head = newNode
+    else:
+      newNode.next = self.head
+      self.head = newNode
+  
+  def deleteAtBegin(self):
+    if self.head is None:
+      print("List is Empty")
+    else:
+      self.head = self.head.next
+      
+  def deleteAtEnd(self):
+    if self.head is None:
+      print("List is Empty")
+    else:
+      temp = self.head
+      while temp.next.next is not None:
+        temp = temp.next
+      
+      temp.next = None
+    
+ob = SLL()
+ob.insertData(10)
+ob.insertData(20)
+ob.insertData(34)
+ob.insertData(43)
+ob.insertData(55)
+ob.display()
+ob.insertAtBegin(9)
+ob.display()
